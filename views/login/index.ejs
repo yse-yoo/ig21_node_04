@@ -1,28 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
+<form action="/auth" method="post">
+  <div>
+    <label>ログイン名</label>
+    <input class="form-control" type="text" name="login_name">
+  </div>
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-</head>
+  <div>
+    <label>パスワード</label>
+    <input class="form-control" type="password" name="password">
+  </div>
 
-<body>
-  <form action="/auth" method="post">
-    <div>
-      <label>ログイン名</label>
-      <input type="text" name="login_name">
-    </div>
-
-    <div>
-      <label>パスワード</label>
-      <input type="password" name="password">
-    </div>
-
-    <div>
-      <button>Loigin</button>
-    </div>
-  </form>
-</body>
-
-</html>
+  <div>
+    <button class="btn btn-primary">Loigin</button>
+  </div>
+</form>

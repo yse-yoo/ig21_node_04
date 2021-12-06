@@ -13,11 +13,14 @@ const app = express()
 app.use(express.static(__dirname + '/public'))
 app.use(express.urlencoded({ extended: true }))
 
+const layouts = require('express-ejs-layouts')
+app.set('layout', 'layouts/default');
+app.set('view engine', 'ejs')
+app.use(layouts) ;
+
 //routes.js を使う
 app.use(routes)
 
-//テンプレートエンジンをEJSにする
-app.set('view engine', 'ejs')
 
 app.listen(port, host, () => {
     console.log('http://' + host + ':' + port)
