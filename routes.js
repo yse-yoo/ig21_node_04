@@ -1,5 +1,7 @@
 const express = require('express')
-//models/item.js を読み込む
+
+const homeController = require('HomeController')
+
 const item = require('./models/item')
 const router = express.Router()
 
@@ -22,25 +24,9 @@ router.post('/auth', (req, res) => {
     res.send(message)
 })
 
-router.get('/', (req, res) => {
-    let data = {}
-    data.title = 'トップページ'
-    res.render('index.ejs', data)
-})
-
-router.get('/profile', (req, res) => {
-    let user = {
-        id: 1,
-        name: '横浜　太郎',
-        birthplace: '横浜',
-        hobby: ['旅行', 'グルメ', 'スポーツ'],
-    }
-    let data = {}
-    data.title = 'プロフィール'
-    data.user = user
-
-    res.render('profile/index.ejs', data)
-})
+//HomeController
+router.get('/', homeController.index)
+router.get('/profile', homeController.profile)
 
 router.get('/item/:id', (req, res) => {
     const id = req.params.id
