@@ -1,4 +1,4 @@
-const item = require('./models/item')
+const item = require('../models/item')
 
 exports.show = (req, res) => {
     const id = req.params.id
