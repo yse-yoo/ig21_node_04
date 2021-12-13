@@ -1,12 +1,16 @@
 const express = require('express')
 
-const homeController = require('HomeController')
+const homeController = require('./controllers/HomeController')
 
 const item = require('./models/item')
 const router = express.Router()
 
 const default_login_name = process.env.LOGIN_NAME
 const default_passsword = process.env.PASSWORD
+
+//HomeController
+router.get('/', homeController.index)
+router.get('/profile', homeController.profile)
 
 router.get('/login', (req, res) => {
     res.render('login/index.ejs')
@@ -23,10 +27,6 @@ router.post('/auth', (req, res) => {
     }
     res.send(message)
 })
-
-//HomeController
-router.get('/', homeController.index)
-router.get('/profile', homeController.profile)
 
 router.get('/item/:id', (req, res) => {
     const id = req.params.id
