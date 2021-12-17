@@ -2,6 +2,7 @@ const item = require('../models/item')
 
 exports.index = (req, res) => {
     let data = {}
+    data.title = '商品一覧'
     data.items = item.values
     res.render('item/index.ejs', data)
 }
